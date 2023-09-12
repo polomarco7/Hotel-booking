@@ -1,20 +1,20 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id ("com.google.devtools.ksp")
-    id ("com.google.dagger.hilt.android")
     id ("kotlin-android")
     id ("kotlin-kapt")
+    id ("com.google.devtools.ksp")
+    id ("com.google.dagger.hilt.android")
 }
 
 android {
     namespace = "com.example.hotelbooking"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.hotelbooking"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 

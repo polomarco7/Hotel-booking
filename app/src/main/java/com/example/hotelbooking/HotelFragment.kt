@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.hotelbooking.HotelFragment.Companion.MAX_STEP
@@ -49,8 +50,9 @@ class HotelFragment : Fragment() {
             }
         })
 
-
-        //............................................................
+        binding.selectRoomBtn.setOnClickListener {
+            findNavController().navigate(R.id.roomFragment)
+        }
     }
     companion object {
         const val MAX_STEP = 3

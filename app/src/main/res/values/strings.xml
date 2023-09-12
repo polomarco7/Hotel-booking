@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Hotel booking</string>
+    <string name="excellently">Превосходно</string>
+    <string name="hotel_name">Hotel name</string>
+    <string name="hotel_address">Hotel address</string>
+    <string name="hotel_cost">Hotel cost</string>
+    <string name="about_hotel">Об отеле</string>
+    <string name="select_room">К выбору номера</string>
+    <string name="hotel_description">Hotel description</string>
+    <string name="conveniences">Удлобства</string>
+    <string name="most_necessary">Самое необходимое</string>
 </resources>

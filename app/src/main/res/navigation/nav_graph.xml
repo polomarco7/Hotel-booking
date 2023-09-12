@@ -3,10 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/appIntro">
+    app:startDestination="@id/hotelFragment">
 
     <fragment
-        android:id="@+id/appIntro"
+        android:id="@+id/hotelFragment"
         android:name="com.example.hotelbooking.HotelFragment"
-        android:label="App Intro" />
+        android:label="Hotels"
+        tools:layout="@layout/fragment_hotel"/>
+    <fragment
+        android:id="@+id/roomFragment"
+        android:name="com.example.hotelbooking.RoomFragment"
+        tools:layout="@layout/fragment_room" />
+    <fragment
+        android:id="@+id/bookingFragment"
+        android:name="com.example.hotelbooking.BookingFragment"
+        android:label="fragment_booking"
+        tools:layout="@layout/fragment_booking" />
+    <fragment
+        android:id="@+id/paidFragment"
+        android:name="com.example.hotelbooking.PaidFragment"
+        android:label="fragment_paid"
+        tools:layout="@layout/fragment_paid" />
 </navigation>
