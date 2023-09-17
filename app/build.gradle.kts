@@ -67,7 +67,7 @@ dependencies {
 
     implementation ("io.github.d00mch:delegateadapter:4.2")
 
-    implementation("ru.egslava:MaskedEditText:1.0.5")
+    implementation("ru.tinkoff.decoro:decoro:1.5.2")
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")

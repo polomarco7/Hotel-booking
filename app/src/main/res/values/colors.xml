@@ -4,6 +4,12 @@
     <color name="white">#FFFFFFFF</color>
     <color name="main_bg">#F6F6F9</color>
     <color name="button_bg">#0D72FF</color>
-    <color name="rating_bg">#FFA800</color>
+    <color name="button_bg_10">#1A0D72FF</color>
+    <color name="rating_text">#FFA800</color>
+    <color name="rating_bg_20">#33FFC700</color>
     <color name="options_bg">#FBFBFC</color>
+    <color name="light_grey">#828796</color>
+    <color name="light_grey_15">#26828796</color>
+    <color name="black_90">#E6000000</color>
+    <color name="dark_grey">#2C3035</color>
 </resources>

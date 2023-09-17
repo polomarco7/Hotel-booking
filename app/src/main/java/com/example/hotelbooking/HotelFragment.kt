@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -23,7 +24,7 @@ class HotelFragment : Fragment() {
     private var _binding: FragmentHotelBinding? = null
     private val binding get() = _binding!!
     private val viewModel: HotelViewModel by viewModels()
-
+    private var bundle: Bundle = Bundle()
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
@@ -72,13 +73,15 @@ class HotelFragment : Fragment() {
                                 binding.photoSlider.viewPager2
                             ) { _, _ ->
                             }.attach()
+                            bundle = bundleOf(Pair("hotel_name", state.hotels.name))
                         }
                     }
                 }
             }
         }
         binding.selectRoomBtn.setOnClickListener {
-            findNavController().navigate(R.id.roomFragment)
+
+            findNavController().navigate(R.id.roomFragment, bundle)
         }
 
     }

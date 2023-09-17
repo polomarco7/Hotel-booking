@@ -7,10 +7,10 @@
             name="viewModel"
             type="com.example.hotelbooking.HotelViewModel" />
     </data>
-<androidx.appcompat.widget.LinearLayoutCompat android:layout_width="match_parent"
+<androidx.appcompat.widget.LinearLayoutCompat
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/rounded_40_layout_bg"
     tools:context=".HotelFragment">
     <ProgressBar
         android:id="@+id/progress_circular"
@@ -21,17 +21,20 @@
         android:layout_gravity="center"/>
 
     <androidx.appcompat.widget.LinearLayoutCompat
-    android:id="@+id/linearFirst"
+        android:id="@+id/linearFirst"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="6dp"
         android:orientation="vertical"
-        android:layout_weight="1"
+        android:layout_weight="1.2"
         android:background="@drawable/bottom_rounded_12_layout_bg">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/hotelSlider"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="6dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -50,18 +53,24 @@
             android:id="@+id/nameLayout"
             layout="@layout/name_layout"/>
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
         android:orientation="horizontal">
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textViewHotelCost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginEnd="4dp"
+            style="@style/hotel_cost"
             android:text="@string/hotel_cost"/>
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textViewHotelCostPer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            style="@style/hotel_cost_per"
             android:text="@string/hotel_cost"/>
 </androidx.appcompat.widget.LinearLayoutCompat>
 </androidx.appcompat.widget.LinearLayoutCompat>
@@ -70,41 +79,53 @@
         android:id="@+id/linearSecond"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="6dp"
         android:orientation="vertical"
-        android:layout_weight="1">
+        android:layout_weight="0.9">
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            style="@style/hotel_name"
             android:text="@string/about_hotel"/>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewHotelAdv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:spanCount="2"
+            android:layout_marginTop="4dp"
+            android:layout_marginHorizontal="16dp"
+            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+            app:spanCount="3"
             tools:listitem="@layout/hotels_description_item"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textViewHotelDesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginHorizontal="16dp"
+            style="@style/hotel_desc"
             android:text="@string/hotel_description"/>
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/options_bg"
+            android:layout_marginTop="4dp"
+            android:paddingVertical="10dp"
+            android:paddingHorizontal="15dp"
+            android:background="@drawable/rounded_15_layout_bg"
             android:orientation="vertical">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/icon_conveniences"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
+                    android:layout_marginEnd="12dp"
                     android:layout_centerVertical="true"
                     app:srcCompat="@drawable/happy" />
                 <androidx.appcompat.widget.LinearLayoutCompat
@@ -113,16 +134,19 @@
                     android:orientation="vertical"
                     android:layout_centerVertical="true"
                     android:layout_toEndOf="@+id/icon_conveniences">
+
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/textView_conveniences"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    style="@style/includes"
                     android:text="@string/conveniences" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/textView_descConveniences"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    style="@style/includes_desc"
                     android:text="@string/most_necessary" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -138,10 +162,11 @@
                 android:id="@+id/divider"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="?android:attr/listDivider" />
+                android:layout_gravity="center"
+                android:background="@color/light_grey_15" />
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1">
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -149,6 +174,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_centerVertical="true"
+                    android:layout_marginEnd="12dp"
                     app:srcCompat="@drawable/tick_square" />
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="wrap_content"
@@ -160,12 +186,14 @@
                     android:id="@+id/textView_includes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/conveniences" />
+                    style="@style/includes"
+                    android:text="@string/what_include" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/textView_descIncludes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    style="@style/includes_desc"
                     android:text="@string/most_necessary" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
                 <androidx.appcompat.widget.AppCompatImageView
@@ -180,10 +208,10 @@
                 android:id="@+id/divider2"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="?android:attr/listDivider" />
+                android:background="@color/light_grey_15" />
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1">
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -191,6 +219,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_centerVertical="true"
+                    android:layout_marginEnd="12dp"
                     app:srcCompat="@drawable/close_square" />
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="wrap_content"
@@ -202,12 +231,14 @@
                     android:id="@+id/textView_notincluded"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/conveniences" />
+                        style="@style/includes"
+                    android:text="@string/not_includes" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/textView_descNotincluded"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    style="@style/includes_desc"
                     android:text="@string/most_necessary" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
                 <androidx.appcompat.widget.AppCompatImageView
@@ -218,8 +249,6 @@
                     android:layout_centerVertical="true"
                     app:srcCompat="@drawable/chevron_right_24px" />
             </RelativeLayout>
-
-
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.appcompat.widget.LinearLayoutCompat>
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -227,13 +256,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:layout_weight="1.7">
+        android:layout_weight="1.8">
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/select_room_btn"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="40dp"
             android:layout_gravity="center_vertical"
-            android:background="@drawable/rounded_15_layout_bg"
+            android:layout_marginHorizontal="16dp"
+            android:background="@drawable/rounded_15_btn_bg"
+            style="@style/btn_text"
             android:text="@string/select_room"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 </androidx.appcompat.widget.LinearLayoutCompat>

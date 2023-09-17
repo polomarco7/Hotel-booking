@@ -164,6 +164,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
+                        android:inputType="textEmailAddress"
                         android:hint="@string/post" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -279,7 +280,7 @@
                 android:layout_height="48dp"
                 android:layout_gravity="center_vertical"
                 android:background="@drawable/rounded_15_layout_bg"
-                android:text="@string/select_room" />
+                android:text="Оплатить" />
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

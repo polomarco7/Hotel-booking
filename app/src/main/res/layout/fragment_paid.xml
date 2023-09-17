@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
@@ -9,24 +8,29 @@
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="16dp"
+        android:background="@drawable/rounded_40_layout_bg">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/appCompatImageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/rounded_1000_poppy_bg"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.328"
+            app:layout_constraintVertical_bias="0.3"
             app:srcCompat="@drawable/party_confetti" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/appCompatTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ваш заказ принят в работу"
+            android:padding="32dp"
+            style="@style/hotel_name"
+            android:text="@string/offer_accept"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/appCompatImageView" />
@@ -34,10 +38,9 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Потвердение заказа №21423423 может занять
-            некоторое время (от 1 часа до суток). Как только мы
-            получим ответ от туроператора, вам на почту придет уведрмление."
+            android:text="@string/_21423423_1"
             android:textAlignment="center"
+            style="@style/hotel_cost_per"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/appCompatTextView" />
@@ -46,17 +49,20 @@
             android:id="@+id/linearThird"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/pay_btn"
+                style="@style/btn_text"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="40dp"
                 android:layout_gravity="center_vertical"
-                android:background="@drawable/rounded_15_layout_bg"
+                android:background="@drawable/rounded_15_btn_bg"
                 android:text="@string/sup" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 

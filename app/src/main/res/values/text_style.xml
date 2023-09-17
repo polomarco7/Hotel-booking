@@ -7,16 +7,59 @@
         <item name="android:textColor">@color/white</item>
         <item name="android:fontFamily">@font/sf_pro_display_black</item>
     </style>
-    <style name="Text.Small">
-        <item name="android:textSize">10sp</item>
-        <item name="android:textStyle">bold</item>
+    <style name="rating_text" >
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:textColor">@color/rating_text</item>
     </style>
-    <style name="Text.Big">
-        <item name="android:textSize">15sp</item>
-        <item name="android:textStyle">normal</item>
+    <style name="includes" >
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:textColor">@color/dark_grey</item>
     </style>
-    <style name="Text.Huge" >
+    <style name="btn_text" >
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="hotel_features" >
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:textColor">@color/light_grey</item>
+    </style>
+    <style name="room_more_info" >
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:textColor">@color/button_bg</item>
+    </style>
+    <style name="hotel_name" >
+        <item name="android:textSize">22sp</item>
+        <item name="android:fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="hotel_address" >
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:textColor">@color/button_bg</item>
+    </style>
+    <style name="includes_desc" >
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:textColor">@color/light_grey</item>
+    </style>
+    <style name="hotel_cost" >
         <item name="android:textSize">30sp</item>
-        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/sf_pro_display_semibold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="hotel_cost_per" >
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textColor">@color/light_grey</item>
+    </style>
+    <style name="hotel_desc" >
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textColor">@color/black_90</item>
     </style>
 </resources>

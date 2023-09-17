@@ -4,41 +4,48 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="wrap_content"
     android:layout_width="wrap_content"
+    android:layout_marginStart="16dp"
     android:orientation="vertical">
 <androidx.appcompat.widget.LinearLayoutCompat
     android:layout_width="wrap_content"
-    android:layout_height="30dp"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="10dp"
     android:background="@drawable/rounded_5_layout_bg"
     android:orientation="horizontal">
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="15dp"
         android:layout_height="15dp"
         android:layout_gravity="center"
+        android:layout_marginEnd="2dp"
         app:srcCompat="@drawable/star"/>
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textViewRating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/sf_pro_display_medium"
-        android:textSize="16sp"
+        android:layout_marginEnd="2dp"
+        style="@style/rating_text"
         android:text="5"/>
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textViewRatingDesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/sf_pro_display_medium"
-        android:textSize="16sp"
+        style="@style/rating_text"
         android:text="@string/excellently"/>
 </androidx.appcompat.widget.LinearLayoutCompat>
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textViewHotelName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/hotel_name"
         android:text="@string/hotel_name"/>
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textViewHotelAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hotel_address"/>
+        android:clickable="true"
+        android:background="?attr/selectableItemBackground"
+        style="@style/hotel_address"
+        android:text="@string/hotel_address"
+        android:focusable="true" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/hotelFragment"
         android:name="com.example.hotelbooking.HotelFragment"
-        android:label="Hotels"
+        android:label="Отель"
         tools:layout="@layout/fragment_hotel"/>
     <fragment
         android:id="@+id/roomFragment"
@@ -17,11 +17,11 @@
     <fragment
         android:id="@+id/bookingFragment"
         android:name="com.example.hotelbooking.BookingFragment"
-        android:label="fragment_booking"
+        android:label="Бронирование"
         tools:layout="@layout/fragment_booking" />
     <fragment
         android:id="@+id/paidFragment"
         android:name="com.example.hotelbooking.PaidFragment"
-        android:label="fragment_paid"
+        android:label="Заказ оплачен"
         tools:layout="@layout/fragment_paid" />
 </navigation>

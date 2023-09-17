@@ -1,16 +1,27 @@
 package com.example.hotelbooking
 
+import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
+import android.text.TextUtils
+import android.util.Log
+import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ExpandableListAdapter
 import android.widget.ExpandableListView
+import android.widget.Toast
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.hotelbooking.databinding.FragmentBookingBinding
 import dagger.hilt.android.AndroidEntryPoint
+import ru.tinkoff.decoro.MaskImpl
+import ru.tinkoff.decoro.slots.PredefinedSlots
+import ru.tinkoff.decoro.watchers.FormatWatcher
+import ru.tinkoff.decoro.watchers.MaskFormatWatcher
 
 
 @AndroidEntryPoint
@@ -29,6 +40,7 @@ class BookingFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -37,7 +49,8 @@ class BookingFragment : Fragment() {
         binding.expandableListView.setAdapter(expandableListViewAdapter)
 
         hintDataList.add(
-            HintData("Первый турист", listOf(TextViewHint())))
+            HintData("Первый турист", listOf(TextViewHint()))
+        )
 
         expandableListViewAdapter.notifyDataSetChanged()
 
@@ -46,10 +59,39 @@ class BookingFragment : Fragment() {
             false
         }
 
-        binding.payBtn.setOnClickListener {
-            findNavController().navigate(R.id.paidFragment)
+        binding.editTextPhoneNumber.addTextChangedListener {
+            val mask = MaskImpl.createTerminated(PredefinedSlots.RUS_PHONE_NUMBER)
+            mask.placeholder = '*'
+            mask.isShowingEmptySlots = true
+            val watcher: FormatWatcher = MaskFormatWatcher(mask)
+            watcher.installOn(binding.editTextPhoneNumber)
         }
+        binding.editTextEmail.addTextChangedListener {
+            if (it.toString().isValidEmail()) {
+                binding.editTextEmail.background = resources.getDrawable(R.color.white, null)
+            }
+            else {
+                binding.editTextEmail.setBackgroundColor(Color.parseColor("#EB5757"))
+                binding.editTextEmail.alpha = 0.15f
+            }
+        }
+
+        binding.payBtn.setOnClickListener {
+            val travelerList = expandableListViewAdapter.travelersList.firstOrNull()
+            Log.d("Person data", travelerList.toString())
+            Toast.makeText(requireContext(), travelerList?.name, Toast.LENGTH_LONG).show()
+                if(travelerList?.name.isNullOrEmpty() or travelerList?.surname.isNullOrEmpty()
+                    or travelerList?.birthDay.isNullOrEmpty() or
+                    travelerList?.citizenship.isNullOrEmpty() or
+                    travelerList?.passportId.toString().isEmpty()
+                    or travelerList?.issueDate.isNullOrEmpty())
+                    Toast.makeText(requireContext(), "Не все поля заполнены", Toast.LENGTH_LONG).show()
+                else
+                    findNavController().navigate(R.id.paidFragment)
+            }
     }
+    private fun String.isValidEmail() =
+        !TextUtils.isEmpty(this) && Patterns.EMAIL_ADDRESS.matcher(this).matches()
     private fun setListViewHeight(
         listView: ExpandableListView,
         group: Int
