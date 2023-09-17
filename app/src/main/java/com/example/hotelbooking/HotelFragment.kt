@@ -5,18 +5,24 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager2.widget.ViewPager2
-import com.example.hotelbooking.HotelFragment.Companion.MAX_STEP
+import com.bumptech.glide.Glide
 import com.example.hotelbooking.databinding.FragmentHotelBinding
 import com.example.hotelbooking.databinding.IntroAppDesignBinding
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class HotelFragment : Fragment() {
     private var _binding: FragmentHotelBinding? = null
-
     private val binding get() = _binding!!
+    private val viewModel: HotelViewModel by viewModels()
 
     override fun onDestroyView() {
         super.onDestroyView()
@@ -30,56 +36,68 @@ class HotelFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //............................................................
-        binding.viewPager2.adapter = AppIntroViewPager2Adapter()
-
-        //............................................................
-        TabLayoutMediator(binding.tabLayout, binding.viewPager2) { tab, position ->
-        }.attach()
-
-        //............................................................
-        binding.viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                super.onPageSelected(position)
-
-                if(position== MAX_STEP -1){
-
-                }else{
-
+        binding.viewModel = viewModel
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.state.collect { state ->
+                    when (state) {
+                        State.Loading -> {
+                            binding.linearFirst.visibility = View.GONE
+                            binding.linearSecond.visibility = View.GONE
+                            binding.linearThird.visibility = View.GONE
+                            binding.progressCircular.visibility = View.VISIBLE
+                        }
+                        is State.Success -> {
+                            binding.linearFirst.visibility = View.VISIBLE
+                            binding.linearSecond.visibility = View.VISIBLE
+                            binding.linearThird.visibility = View.VISIBLE
+                            binding.progressCircular.visibility = View.GONE
+                            binding.photoSlider.viewPager2.adapter =
+                                AppIntroViewPager2Adapter(state.hotels.imageUrls)
+                            binding.nameLayout.textViewRating.text = state.hotels.rating.toString()
+                            binding.nameLayout.textViewRatingDesc.text = state.hotels.ratingName
+                            binding.nameLayout.textViewHotelName.text = state.hotels.name
+                            binding.nameLayout.textViewHotelAddress.text = state.hotels.address
+                            binding.textViewHotelCost.text = "от ${state.hotels.minimalPrice}"
+                            binding.textViewHotelCostPer.text = state.hotels.priceForIt
+                            binding.recyclerViewHotelAdv.adapter = state.hotels.aboutTheHotel?.let {
+                                HotelDescAdapter(
+                                    it.peculiarities
+                                )
+                            }
+                            binding.textViewHotelDesc.text =
+                                state.hotels.aboutTheHotel?.description ?: " "
+                            TabLayoutMediator(
+                                binding.photoSlider.tabLayout,
+                                binding.photoSlider.viewPager2
+                            ) { _, _ ->
+                            }.attach()
+                        }
+                    }
                 }
             }
-        })
-
+        }
         binding.selectRoomBtn.setOnClickListener {
             findNavController().navigate(R.id.roomFragment)
         }
-    }
-    companion object {
-        const val MAX_STEP = 3
+
     }
 }
-//...............................................................................
-
-
-//................................................................................
-class AppIntroViewPager2Adapter : RecyclerView.Adapter<PagerVH2>() {
+class AppIntroViewPager2Adapter(private val listImages: List<String>) : RecyclerView.Adapter<PagerVH2>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PagerVH2 {
         return PagerVH2(
             IntroAppDesignBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         )
     }
-    override fun getItemCount(): Int = 3
-    override fun onBindViewHolder(holder: PagerVH2, position: Int) = holder.itemView.run {
+    override fun getItemCount(): Int = listImages.size
+    override fun onBindViewHolder(holder: PagerVH2, position: Int) {
 
-        with(holder) {
-            if (position == 0) {
-                bindingDesign.introImage.setImageResource(R.drawable.ic_launcher_background)
-            }
-            if (position == 1) {
-                bindingDesign.introImage.setImageResource(R.drawable.ic_launcher_background)
-            }
-            if (position == 2) {
-                bindingDesign.introImage.setImageResource(R.drawable.ic_launcher_background)
+        with(holder.bindingDesign) {
+            listImages[position].let {
+                Glide
+                    .with(introImage.context)
+                    .load(it)
+                    .into(introImage)
             }
         }
     }

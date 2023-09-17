@@ -9,4 +9,19 @@
     <string name="hotel_description">Hotel description</string>
     <string name="conveniences">Удлобства</string>
     <string name="most_necessary">Самое необходимое</string>
+    <string name="description">Description</string>
+    <string name="learn_more_about">Learn more about</string>
+    <string name="_186600">186600</string>
+    <string name="_7">за 7 ночей с перелетом</string>
+    <string name="bayer_warning">Эти данные никому не передаются. После оплаты мы вышлем чек на указанный вами номер и почту</string>
+    <string name="phone_number">Номер телефона</string>
+    <string name="post">Почта</string>
+    <string name="name">Имя</string>
+    <string name="surname">Фамилия</string>
+    <string name="birth_date">Дата рождения</string>
+    <string name="citizenship">Гражданство</string>
+    <string name="pass_id">Номер загранпаспорта</string>
+    <string name="pass_issue_date">Срок действия загранпаспорта</string>
+    <string name="departure_from">Вылет из</string>
+    <string name="sup">Супер!</string>
 </resources>

@@ -45,6 +45,7 @@ android {
 }
 
 dependencies {
+    implementation ("com.squareup.okhttp3:logging-interceptor:4.10.0")
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.moshi:moshi-kotlin:1.14.0")
     implementation ("com.squareup.moshi:moshi:1.14.0")
@@ -63,6 +64,10 @@ dependencies {
 
     implementation ("com.github.bumptech.glide:glide:4.14.2")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.13.0")
+
+    implementation ("io.github.d00mch:delegateadapter:4.2")
+
+    implementation("ru.egslava:MaskedEditText:1.0.5")
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")

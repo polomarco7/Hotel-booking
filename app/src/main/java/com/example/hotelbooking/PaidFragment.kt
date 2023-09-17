@@ -6,13 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PaidFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = PaidFragment()
-    }
-
     private lateinit var viewModel: PaidViewModel
 
     override fun onCreateView(
@@ -21,11 +18,4 @@ class PaidFragment : Fragment() {
     ): View? {
         return inflater.inflate(R.layout.fragment_paid, container, false)
     }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(PaidViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
-
 }
