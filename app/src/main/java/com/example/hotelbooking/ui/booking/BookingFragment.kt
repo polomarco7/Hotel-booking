@@ -107,7 +107,6 @@ class BookingFragment : Fragment() {
         binding.editTextPhoneNumber.addTextChangedListener {
             val mask = MaskImpl.createTerminated(PredefinedSlots.RUS_PHONE_NUMBER)
             mask.placeholder = '*'
-            mask.isShowingEmptySlots = true
             val watcher: FormatWatcher = MaskFormatWatcher(mask)
             watcher.installOn(binding.editTextPhoneNumber)
         }
@@ -124,7 +123,6 @@ class BookingFragment : Fragment() {
         binding.payBtn.setOnClickListener {
             val travelerList = expandableListViewAdapter.travelersList.firstOrNull()
             Log.d("Person data", travelerList.toString())
-            Toast.makeText(requireContext(), travelerList?.name, Toast.LENGTH_LONG).show()
                 if(travelerList?.name.isNullOrEmpty() or travelerList?.surname.isNullOrEmpty()
                     or travelerList?.birthDay.isNullOrEmpty() or
                     travelerList?.citizenship.isNullOrEmpty() or
