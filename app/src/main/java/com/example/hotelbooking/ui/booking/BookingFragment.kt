@@ -107,6 +107,7 @@ class BookingFragment : Fragment() {
         binding.editTextPhoneNumber.addTextChangedListener {
             val mask = MaskImpl.createTerminated(PredefinedSlots.RUS_PHONE_NUMBER)
             mask.placeholder = '*'
+            mask.isShowingEmptySlots = true
             val watcher: FormatWatcher = MaskFormatWatcher(mask)
             watcher.installOn(binding.editTextPhoneNumber)
         }
