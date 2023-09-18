@@ -1,4 +1,4 @@
-package com.example.hotelbooking
+package com.example.hotelbooking.ui.hotel
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -13,6 +13,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.hotelbooking.R
 import com.example.hotelbooking.databinding.FragmentHotelBinding
 import com.example.hotelbooking.databinding.IntroAppDesignBinding
 import com.google.android.material.tabs.TabLayoutMediator

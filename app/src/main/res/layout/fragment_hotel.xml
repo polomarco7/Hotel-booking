@@ -5,13 +5,13 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.hotelbooking.HotelViewModel" />
+            type="com.example.hotelbooking.ui.hotel.HotelViewModel" />
     </data>
 <androidx.appcompat.widget.LinearLayoutCompat
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".HotelFragment">
+    tools:context=".ui.hotel.HotelFragment">
     <ProgressBar
         android:id="@+id/progress_circular"
         android:layout_width="wrap_content"

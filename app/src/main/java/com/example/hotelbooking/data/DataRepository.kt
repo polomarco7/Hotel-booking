@@ -1,5 +1,8 @@
-package com.example.hotelbooking
+package com.example.hotelbooking.data
 
+import com.example.hotelbooking.models.BookingModel
+import com.example.hotelbooking.models.Hotels
+import com.example.hotelbooking.models.Rooms
 import javax.inject.Inject
 class DataRepository @Inject constructor(
     private val dataApi: DataApi

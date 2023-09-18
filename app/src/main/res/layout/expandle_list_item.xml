@@ -18,6 +18,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text"
+            style="@style/hint"
             android:hint="@string/name" />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
@@ -33,6 +34,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text"
+            style="@style/hint"
             android:hint="@string/surname" />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
@@ -48,6 +50,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="date"
+            style="@style/hint"
             android:hint="@string/birth_date" />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
@@ -63,6 +66,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text"
+            style="@style/hint"
             android:hint="@string/citizenship" />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
@@ -78,6 +82,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="numberDecimal"
+            style="@style/hint"
             android:hint="@string/pass_id" />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
@@ -93,6 +98,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="date"
+            style="@style/hint"
             android:hint="@string/pass_issue_date" />
     </com.google.android.material.textfield.TextInputLayout>
 

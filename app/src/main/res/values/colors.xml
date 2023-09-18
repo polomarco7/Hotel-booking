@@ -12,4 +12,6 @@
     <color name="light_grey_15">#26828796</color>
     <color name="black_90">#E6000000</color>
     <color name="dark_grey">#2C3035</color>
+    <color name="hint_color">#A9ABB7</color>
+    <color name="hint_text_color">#14142B</color>
 </resources>

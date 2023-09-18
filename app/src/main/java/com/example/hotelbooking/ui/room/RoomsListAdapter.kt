@@ -1,12 +1,14 @@
-package com.example.hotelbooking
+package com.example.hotelbooking.ui.room
 
  import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.example.hotelbooking.databinding.RoomItemBinding
+ import com.example.hotelbooking.ui.hotel.HotelDescAdapter
+ import com.example.hotelbooking.models.Rooms
+ import com.example.hotelbooking.databinding.RoomItemBinding
+ import com.example.hotelbooking.ui.hotel.AppIntroViewPager2Adapter
  import com.google.android.material.tabs.TabLayoutMediator
 
 class RoomsListAdapter(

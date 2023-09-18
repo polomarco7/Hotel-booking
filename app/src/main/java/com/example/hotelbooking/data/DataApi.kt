@@ -1,5 +1,8 @@
-package com.example.hotelbooking
+package com.example.hotelbooking.data
 
+import com.example.hotelbooking.models.BookingModel
+import com.example.hotelbooking.models.Hotels
+import com.example.hotelbooking.models.RoomsList
 import retrofit2.http.GET
 interface DataApi {
     @GET("35e0d18e-2521-4f1b-a575-f0fe366f66e3")

@@ -1,6 +1,7 @@
-package com.example.hotelbooking
+package com.example.hotelbooking.di
 
 import android.util.Log
+import com.example.hotelbooking.data.DataApi
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module

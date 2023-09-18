@@ -1,4 +1,4 @@
-package com.example.hotelbooking
+package com.example.hotelbooking.ui.room
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.example.hotelbooking.R
 import com.example.hotelbooking.databinding.FragmentRoomBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn

@@ -5,13 +5,13 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.hotelbooking.RoomViewModel" />
+            type="com.example.hotelbooking.ui.room.RoomViewModel" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/rounded_12_layout_bg"
-    tools:context=".RoomFragment">
+    tools:context=".ui.room.RoomFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/roomRecycler"

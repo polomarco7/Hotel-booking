@@ -28,4 +28,15 @@
     <string name="not_includes">Что не включено</string>
     <string name="offer_accept">Ваш заказ принят в работу</string>
     <string name="_21423423_1">Потвердение заказа №21423423 может занять некоторое время (от 1 часа до суток). Как только мы получим ответ от туроператора, вам на почту придет уведрмление.</string>
+    <string name="info_consumer">Информация о покупателе</string>
+    <string name="add_tourist">Добавить туриста</string>
+    <string name="to_paid">К оплате</string>
+    <string name="service_charge">Сервисный сбор</string>
+    <string name="fuel_charge">Топливный сбор</string>
+    <string name="tour">Тур</string>
+    <string name="to_pay">Оплатить %d \u20BD</string>
+    <string name="tour_sum">%d \u20BD</string>
+    <string name="fuel_sum">%d \u20BD</string>
+    <string name="service_sum">%d \u20BD</string>
+    <string name="total_sum">%d \u20BD</string>
 </resources>

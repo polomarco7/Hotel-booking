@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:layout_width="wrap_content"
     android:layout_marginStart="16dp"
+    android:background="@drawable/rounded_15_layout_bg"
     android:orientation="vertical">
 <androidx.appcompat.widget.LinearLayoutCompat
     android:layout_width="wrap_content"

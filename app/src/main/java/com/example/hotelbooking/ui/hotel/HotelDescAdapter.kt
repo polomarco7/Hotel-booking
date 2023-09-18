@@ -1,4 +1,4 @@
-package com.example.hotelbooking
+package com.example.hotelbooking.ui.hotel
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

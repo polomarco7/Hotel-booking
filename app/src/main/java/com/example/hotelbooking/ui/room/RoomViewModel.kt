@@ -1,8 +1,10 @@
-package com.example.hotelbooking
+package com.example.hotelbooking.ui.room
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.hotelbooking.data.DataRepository
+import com.example.hotelbooking.models.Rooms
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow

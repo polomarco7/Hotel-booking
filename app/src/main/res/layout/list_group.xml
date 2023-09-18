@@ -8,6 +8,7 @@
         android:id="@+id/textViewTourist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/hotel_name"
         android:text="Первый турист"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -7,21 +7,21 @@
 
     <fragment
         android:id="@+id/hotelFragment"
-        android:name="com.example.hotelbooking.HotelFragment"
+        android:name="com.example.hotelbooking.ui.hotel.HotelFragment"
         android:label="Отель"
         tools:layout="@layout/fragment_hotel"/>
     <fragment
         android:id="@+id/roomFragment"
-        android:name="com.example.hotelbooking.RoomFragment"
+        android:name="com.example.hotelbooking.ui.room.RoomFragment"
         tools:layout="@layout/fragment_room" />
     <fragment
         android:id="@+id/bookingFragment"
-        android:name="com.example.hotelbooking.BookingFragment"
+        android:name="com.example.hotelbooking.ui.booking.BookingFragment"
         android:label="Бронирование"
         tools:layout="@layout/fragment_booking" />
     <fragment
         android:id="@+id/paidFragment"
-        android:name="com.example.hotelbooking.PaidFragment"
+        android:name="com.example.hotelbooking.ui.paid.PaidFragment"
         android:label="Заказ оплачен"
         tools:layout="@layout/fragment_paid" />
 </navigation>

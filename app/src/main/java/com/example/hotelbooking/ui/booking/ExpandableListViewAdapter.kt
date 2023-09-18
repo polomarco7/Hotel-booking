@@ -1,4 +1,4 @@
-package com.example.hotelbooking
+package com.example.hotelbooking.ui.booking
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -11,6 +11,11 @@ import android.widget.BaseExpandableListAdapter
 import android.widget.EditText
 import android.widget.TextView
 import androidx.core.widget.addTextChangedListener
+import com.example.hotelbooking.models.HintData
+import com.example.hotelbooking.R
+import com.example.hotelbooking.models.TextViewHint
+import com.example.hotelbooking.models.Traveler
+
 class ExpandableListViewAdapter(private val hintDataList: List<HintData>) : BaseExpandableListAdapter() {
 
     val travelersList = mutableListOf<Traveler>()

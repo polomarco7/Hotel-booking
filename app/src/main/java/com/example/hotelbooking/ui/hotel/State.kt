@@ -1,4 +1,6 @@
-package com.example.hotelbooking
+package com.example.hotelbooking.ui.hotel
+
+import com.example.hotelbooking.models.Hotels
 
 
 sealed class State {

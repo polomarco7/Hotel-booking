@@ -1,4 +1,4 @@
-package com.example.hotelbooking
+package com.example.hotelbooking.ui.booking
 
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -12,12 +12,20 @@ import android.view.ViewGroup
 import android.widget.ExpandableListAdapter
 import android.widget.ExpandableListView
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import com.example.hotelbooking.models.HintData
+import com.example.hotelbooking.R
+import com.example.hotelbooking.models.TextViewHint
 import com.example.hotelbooking.databinding.FragmentBookingBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import ru.tinkoff.decoro.MaskImpl
 import ru.tinkoff.decoro.slots.PredefinedSlots
 import ru.tinkoff.decoro.watchers.FormatWatcher
@@ -52,13 +60,50 @@ class BookingFragment : Fragment() {
             HintData("Первый турист", listOf(TextViewHint()))
         )
 
-        expandableListViewAdapter.notifyDataSetChanged()
-
         binding.expandableListView.setOnGroupClickListener { parent, _, groupPosition, _ ->
             setListViewHeight(parent, groupPosition)
             false
         }
 
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.state.collect { state ->
+                    when (state) {
+                        StateBooking.Loading -> {
+                        }
+                        is StateBooking.Success -> {
+                            binding.nameLayout.textViewRating.text = state.rooms.horating.toString()
+                            binding.nameLayout.textViewRatingDesc.text = state.rooms.ratingName
+                            binding.nameLayout.textViewHotelName.text = state.rooms.hotelName
+                            binding.nameLayout.textViewHotelAddress.text = state.rooms.hotelAddress
+                            binding.textViewDepartureFrom.text = state.rooms.departure
+                            binding.textViewArrival.text = state.rooms.arrivalCountry
+                            binding.textViewNightsCount.text = state.rooms.numberOfNights.toString()
+                            binding.textViewHotelName.text = state.rooms.hotelName
+                            binding.textViewRoomType.text = state.rooms.room
+                            binding.textViewNutrition.text = state.rooms.nutrition
+                            binding.textViewTour.text = getString(R.string.tour_sum, state.rooms.tourPrice)
+                            binding.textViewFuelCharge.text = getString(R.string.fuel_sum, state.rooms.fuelCharge)
+                            binding.textViewServiceCharge.text = getString(R.string.service_sum, state.rooms.serviceCharge)
+                            binding.textViewTotal.text = getString(R.string.total_sum, state.rooms.tourPrice)
+                            binding.payBtn.text = getString(R.string.to_pay, state.rooms.tourPrice)
+                        }
+                    }
+                }
+            }
+        }
+        binding.addTouristBtn.setOnClickListener {
+           val exp = ExpandableListView(requireContext())
+            val layoutParams = ConstraintLayout.LayoutParams(
+                ConstraintLayout.LayoutParams.MATCH_PARENT,
+                ConstraintLayout.LayoutParams.WRAP_CONTENT
+            )
+            layoutParams.leftToLeft = ConstraintLayout.LayoutParams.PARENT_ID
+            layoutParams.topToBottom = binding.expandableListView.id
+            layoutParams.rightToRight = ConstraintLayout.LayoutParams.PARENT_ID
+            exp.layoutParams = layoutParams
+            binding.paidConstraitLayout.addView(exp)
+        }
         binding.editTextPhoneNumber.addTextChangedListener {
             val mask = MaskImpl.createTerminated(PredefinedSlots.RUS_PHONE_NUMBER)
             mask.placeholder = '*'
@@ -89,6 +134,8 @@ class BookingFragment : Fragment() {
                 else
                     findNavController().navigate(R.id.paidFragment)
             }
+
+        expandableListViewAdapter.notifyDataSetChanged()
     }
     private fun String.isValidEmail() =
         !TextUtils.isEmpty(this) && Patterns.EMAIL_ADDRESS.matcher(this).matches()

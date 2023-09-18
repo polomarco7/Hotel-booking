@@ -1,4 +1,4 @@
-package com.example.hotelbooking
+package com.example.hotelbooking.models
 
 data class Traveler(
     var id: Int = 0,
